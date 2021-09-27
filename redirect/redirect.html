@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect</title>
+</head>
+<body>
+    <p>Redirecting...</p>
+    <script>
+        const LINK = window.location.href;
+        const sublinks = LINK.split("/")
+        const lastSublink = sublinks[sublinks.length-1];
+        localStorage.setItem("room", lastSublink);
+        window.location.replace("/");
+    </script>
+</body>
+</html>
