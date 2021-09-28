@@ -43,19 +43,25 @@ const newBoard = () => {
 };
 wss.on('connection', socket => {
     socket.on('close', () => {
-        let room;
+        let roomID;
         rooms.forEach(room => {
             if (socket === room.player1) {
                 if (room.player2) {
                     room.player2.send(JSON.stringify({ status: "disconnect" }));
+                    roomID = room.room;
                 }
             }
             else if (socket === room.player2) {
                 if (room.player1) {
                     room.player1.send(JSON.stringify({ status: "disconnect" }));
+                    roomID = room.room;
                 }
             }
         });
+        if (roomID) {
+            let roomIndex = getRoomIndex(roomID);
+            rooms.splice(roomID, 1);
+        }
     });
     socket.on('message', data => {
         const message = JSON.parse(data.toString());
