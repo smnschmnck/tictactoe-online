@@ -10,13 +10,18 @@ const http_1 = __importDefault(require("http"));
 const random_words_1 = __importDefault(require("random-words"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3000;
+let visits = 0;
 app.use(express_1.default.static('redirect'));
-app.get('/room/:id', function (req, res) {
+app.get('/room/:id', (req, res) => {
     res.sendFile(path_1.default.join(__dirname, '../redirect/redirect.html'));
 });
-app.use(express_1.default.static('build'));
-app.get('/', function (req, res) {
-    res.sendFile(path_1.default.join(__dirname, '../build/indexhtml'));
+app.get('/', (req, res) => {
+    app.use(express_1.default.static('build'));
+    visits++;
+    res.sendFile(path_1.default.join(__dirname, '../build/index.html'));
+});
+app.get("/visits", (req, res) => {
+    res.send(JSON.stringify({ visits: visits }));
 });
 const server = http_1.default.createServer(app);
 const wss = new ws_1.default.Server({ server });

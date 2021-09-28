@@ -7,14 +7,21 @@ import randomWords from 'random-words';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+let visits = 0;
+
 app.use(express.static('redirect'));
-app.get('/room/:id', function(req, res) {
+app.get('/room/:id', (req, res) => {
     res.sendFile(path.join(__dirname, '../redirect/redirect.html'));
 });
 
-app.use(express.static('build'));
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../build/indexhtml'));
+app.get('/', (req, res) => {
+  app.use(express.static('build'));
+  visits++;
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
+app.get("/visits", (req, res) => {
+  res.send(JSON.stringify({visits: visits}));
 });
 
 const server = http.createServer(app);
