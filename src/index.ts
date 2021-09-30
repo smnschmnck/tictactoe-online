@@ -67,13 +67,13 @@ wss.on('connection', socket => {
       for(let i = 0; i<rooms.length; i++){
         const room = rooms[i];
         if(socket === room.player1){
+          rooms.splice(i, 1);
           if(room.player2){
-            rooms.splice(i, 1);
             room.player2.send(JSON.stringify({status: "disconnect"}));
           }
         }else if(socket === room.player2){
+          rooms.splice(i, 1);
           if(room.player1){
-            rooms.splice(i, 1);
             room.player1.send(JSON.stringify({status: "disconnect"}));
           }
         }
