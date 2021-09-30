@@ -50,14 +50,15 @@ wss.on('connection', socket => {
     socket.on('close', () => {
         for (let i = 0; i < rooms.length; i++) {
             const room = rooms[i];
-            rooms.splice(i, 1);
             if (socket === room.player1) {
                 if (room.player2) {
+                    rooms.splice(i, 1);
                     room.player2.send(JSON.stringify({ status: "disconnect" }));
                 }
             }
             else if (socket === room.player2) {
                 if (room.player1) {
+                    rooms.splice(i, 1);
                     room.player1.send(JSON.stringify({ status: "disconnect" }));
                 }
             }
@@ -91,7 +92,7 @@ wss.on('connection', socket => {
                 }
             }
             else {
-                socket.send(JSON.stringify({ status: "error", errorMessage: "room does not exist" }));
+                socket.send(JSON.stringify({ status: "error", errorMessage: "room: " + id + " does not exist" }));
             }
         }
         else if (message.status === "move") {
