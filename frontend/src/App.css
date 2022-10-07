@@ -1,38 +1,305 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+.App{
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: antiquewhite;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1{
+    font-weight: 900;
+    margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Branding{
+    position: absolute;
+    text-align: center;
+    margin-left: 1.4rem;
+    margin-top: 1.4rem;
+    font-size: 1.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.JoinRoom{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10%;
+    width: 100%;
+    height: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.RoomForm{
+    height: 100%;
+    width: 80%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    background-color: aliceblue;
+}
+
+.RoomFormControls{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.RoomInput{
+    background-color: transparent;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 5rem;
+    height: 2.4rem;
+    width: 80%;
+    max-width: 250px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1rem;
+    outline: none;
+    padding: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.JoinRoomButton{
+    background-color: #06f;
+    border-radius: 5rem;
+    border: none;
+    color: white;
+    width: 80%;
+    max-width: 250px;
+    height: 2.8rem;
+    font-weight: 800;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    cursor: pointer;
+}
+
+.CreateRoom{
+    height: 100%;
+    width: 80%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    background-color: aliceblue;
+}
+
+.Game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    height: 80%;
+    width: 80%;
+    background-color: aliceblue;
+}
+
+.WaitingRoom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    margin: 0;
+    max-height: 600px;
+    gap: 8%
+}
+
+.Waiting{
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.ShowRoomID{
+    font-size: 3rem;
+    margin: 0;
+}
+
+b{
+    font-weight: 900;
+}
+
+.Winner{
+    margin-bottom: 1.5rem;
+}
+
+.Board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+}
+
+.Row{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.Field{
+    background-color: transparent;
+    border: none;
+    width: 5rem;
+    height: 5rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    background-color: cadetblue;
+    color: white;
+    padding: 0;
+}
+
+.WinningField{
+    background-color: rebeccapurple;
+    color: white;
+    border: none;
+    width: 5rem;
+    height: 5rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    padding: 0;
+}
+
+.NewGameButton{
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    width: 15rem;
+    height: 2.8rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+}
+
+.CopyButton{
+    background-color: #06f;
+    border-radius: 5rem;
+    border: none;
+    color: white;
+    width: 80%;
+    max-width: 250px;
+    height: 2.8rem;
+    font-weight: 800;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    cursor: pointer;
+}
+
+.CopiedButton{
+    background-color: rgb(85, 132, 202);
+    border-radius: 5rem;
+    border: none;
+    color: white;
+    width: 80%;
+    max-width: 250px;
+    height: 2.8rem;
+    font-weight: 800;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    cursor: pointer;
+}
+
+.ShareDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.QRDiv{
+    height: 150px;
+}
+
+.QRButton{
+    border-radius: 5rem;
+    border: 1px solid #06f;
+    background-color: transparent;
+    color: #06f;
+    width: 80%;
+    max-width: 250px;
+    height: 2.8rem;
+    font-weight: 800;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 670px) {
+
+    .JoinRoomButton:hover{
+        background-color: rgb(0, 85, 212);
+    }
+
+    .Field:hover{
+        background-color: rgb(66, 111, 112);
+    }
+
+    .NewGameButton:hover{
+        color: cadetblue;
+        border: 4px solid cadetblue;
+        background-color: transparent;
+    }
+
+    .CopyButton:hover{
+        background-color: rgb(0, 85, 212);
+    }
+
+    .QRButton:hover{
+        border: 3px solid #06f;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+
+    .App{
+        background-color: aliceblue;
+    }
+
+    .JoinRoom{
+        flex-direction: column;
+        gap: 2%;
+    }
+
+    .RoomForm{
+        width: 100%;
+    }
+    .CreateRoom{
+        width: 100%;
+    }
+    .Branding{
+        margin-left: 0.5rem;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+    }
+    .Game{
+        width: 100%;
+        height: 100%;
+    }
 }
